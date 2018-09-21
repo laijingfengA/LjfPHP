@@ -13,8 +13,10 @@ define('ROOT', __DIR__);                                            //根
 define('CORE', ROOT . DS . 'core');                                 //核心
 define('APP', ROOT . DS . 'app');                                   //MVC
 define('MODULE', 'app');                                            //模块
-define('WEB', '//' . $_SERVER['HTTP_HOST'] . '/LjfPHP/web');        //web,用于存放css、js、img和第三方的样式的目录
-define('URL', '//' . $_SERVER['HTTP_HOST'] . '/LjfPHP/index.php');  //访问url
+
+$arr = explode('index.php/', $_SERVER['REQUEST_URI']);
+define('WEB', '//' . $_SERVER['HTTP_HOST'] . $arr[0] . 'web');        //web,用于存放css、js、img和第三方的样式的目录
+define('URL', '//' . $_SERVER['HTTP_HOST'] . $arr[0] . 'index.php');  //访问url
 define('DEBUG', true);
 
 include ROOT . DS . 'vendor' . DS . 'autoload.php';
